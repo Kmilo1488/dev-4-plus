@@ -1,0 +1,70 @@
+{
+  "menu": {
+    "home": "INICIO",
+    "products": "PRODUCTOS",
+    "about_us": "NOSOTROS",
+    "contact": "CONTACTO"
+  },
+  "header": {
+    "what-do": "CONSTRUIMOS LO QUE NECESITAS",
+    "what-do-copy": "CREAMOS UN SOFTWARE ATRACTIVO PARA EL CONSUMIDOR QUE MEJORA LAS MÉTRICAS COMERCIALES PARA LAS EMPRESAS EN ETAPA INICIAL.",
+    "contact-us": "CONTACTANOS"
+  },
+  "what-do": {
+    "title": "QUE HACEMOS",
+    "copy": "Nos especializamos en asociarnos con empresas de software en etapa inicial para moverlas del punto A al punto B. A través del desarrollo web innovador y el diseño de servicio completo, nuestro equipo de veteranos de startups lo ayudará a alcanzar su próximo gran hito.",
+    "product-strategy": "ESTRATEGIA DE PRODUCTO",
+    "product-strategy-copy": "La estrategia de producto es nuestra competencia principal y nos asociaremos con usted de principio a fin. Creemos que los productos deben construirse de manera iterativa y lo ayudarán a crear MVP estratégicos, medir análisis e incorporar comentarios de los usuarios antes y después del lanzamiento.",
+    "ui-ux-design": "DISEÑO UX/UI",
+    "ui-ux-design-copy": "Nos especializamos en crear interfaces de usuario hermosas e intuitivas. Nuestra área de especialización abarca desde arquitectura de información de alto nivel, experiencia del usuario y diseños de interfaz de usuario hasta iconografía, ilustraciones y guías de estilo personalizadas.",
+    "user-research-testing": "INVESTIGACIÓN Y PRUEBAS DE USUARIOS",
+    "user-research-testing-copy": "Nunca lanzamos un producto sin recopilar comentarios de los usuarios tanto cualitativos como cuantitativos. Desde entrevistas de usuarios moderadas y no moderadas hasta pruebas de usabilidad, nos aseguramos de que nuestros productos siempre satisfagan las necesidades del usuario final.",
+    "full-stack-development": "DESARROLLO FULL STACK",
+    "full-stack-development-copy": "Creamos aplicaciones web disruptivas y móviles híbridas para empresas de software. Emparejaremos cuidadosamente sus necesidades únicas con nuestro equipo de desarrolladores Full Stack con experiencia.",
+    "project-management": "GEESTIÓN DE PROYECTOS",
+    "project-management-copy": "Nuestro equipo de liderazgo y gerentes de proyectos trabajarán con usted para garantizar que todos los proyectos cumplan con los más altos estándares de calidad y se completen a tiempo y dentro del presupuesto.",
+    "quality-assurance": "CONTROL DE CALIDAD",
+    "quality-assurance-copy": "Nada sale por la puerta hasta que lo sometemos a un vigoroso proceso de control de calidad realizado por nuestros probadores de control de calidad internos."
+  },
+  "tech": {
+    "title": "TECNOLOGIAS",
+    "copy": "Nuestro conjunto de Habilidades de desarrollo",
+    "react": "React",
+    "ruby-on-rails": "Ruby on Rails",
+    "react-native": "React Native"
+  },
+  "dna": {
+    "title": "NUESTRO ADN",
+    "copy": "Nuestras claves para construir asociaciones exitosas",
+    "title-item-1": "TALENTO ÚNICO    ",
+    "copy-item-1": "Reclutando el mejor talento de Latinoamérica.",
+    "title-item-2": "LARGO PLAZO",
+    "copy-item-2": "Nuestro mayor canal de adquisición es el boca a boca. Solo buscamos asociaciones a largo plazo.",
+    "title-item-3": "COLABORACIÓN EN TIEMPO REAL    ",
+    "copy-item-3": "Estamos alineados con el horario laboral de EE.UU.",
+    "title-item-4": "FLEXIBLE",
+    "copy-item-4": "No se requieren contratos complejos ni compromisos a largo plazo.",
+    "title-item-5": "ECONÓMICO",
+    "copy-item-5": "Reduzca los costos hasta en un 50% en comparación con los recursos basados ​​en EE.UU."
+  },
+  "clients": {
+    "title": "CLIENTES"
+  },
+  "contact-us": {
+    "title": "¡TRABAJEMOS JUNTOS!",
+    "copy": "Nos encantaría charlar sobre tu proyecto. Complete este formulario y nos pondremos en contacto con usted lo antes posible.",
+    "your-name": "Su Nombre ",
+    "your-email": "Su Email",
+    "your-messages": "Su Mensaje",
+    "send": "ENVIAR",
+    "thanks": "Gracias!",
+    "error": "Ooops! Intentalo de nuevo por favor."
+  },
+  "footer": {
+    "we": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "copy-1": "COPYRIGHT ©2020 DEV4 PLUS S.A.S.",
+    "copy-2": "Hecho con amor por DEV4 TEAM"
+  }
+}

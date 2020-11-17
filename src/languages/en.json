@@ -1,0 +1,70 @@
+{
+  "menu": {
+    "home": "HOME",
+    "products": "PRODUCTS",
+    "about_us": "ABOUT US",
+    "contact": "CONTACT"
+  },
+  "header": {
+    "what-do": "WE BUILD WHAT YOU NEED",
+    "what-do-copy": "We build beautiful consumer facing software that improves business metrics for early-stage companies.",
+    "contact-us": "CONTACT US"
+  },
+  "what-do": {
+    "title": "WHAT WE DO",
+    "copy": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet",
+    "product-strategy": "PRODUCT STRATEGY",
+    "product-strategy-copy": "Product strategy is our core competency, and we will partner with you from start to finish. We believe products should be built iteratively, and will help you craft strategic MVPs, measure analytics, and incorporate user feedback pre and post launch.",
+    "ui-ux-design": "UX/UI DESIGN",
+    "ui-ux-design-copy": "We specialize in creating beautiful, intuitive user interfaces. Our area of expertise ranges from high-level information architecture, user experience, and UI designs to custom iconography, illustrations, and style guides.",
+    "user-research-testing": "USER RESEARCH & TESTING",
+    "user-research-testing-copy": "We never release a product without gathering both qualitative and quantitative user feedback. From moderated and unmoderated user interviews to usability testing, we ensure that our products always meet the needs of the end user.",
+    "full-stack-development": "FULL STACK DEVELOPMENT",
+    "full-stack-development-copy": "We build disruptive web and hybrid mobile applications for software companies. We will carefully match your unique needs to our team of experienced full stack developers.",
+    "project-management": "PROJECT MANAGEMENT",
+    "project-management-copy": "Our leadership team and project managers will work with you to ensure all projects meet the highest quality standards and are completed on time and on budget.",
+    "quality-assurance": "QUALITY ASSURANCE",
+    "quality-assurance-copy": "Nothing goes out the door until we put it through a vigorous QA process performed by our in-house quality assurance testers."
+  },
+  "tech": {
+    "title": "TECHNOLOGIES",
+    "copy": "Our Development Skillset",
+    "react": "React",
+    "ruby-on-rails": "Ruby on Rails",
+    "react-native": "React Native"
+  },
+  "dna": {
+    "title": "OUR DNA",
+    "copy": "Our keys to building successful parnerships.",
+    "title-item-1": "UNIQUE TALENT",
+    "copy-item-1": "Recruiting the best talent from Latin America.",
+    "title-item-2": "LONG-TERM",
+    "copy-item-2": "Our biggest acquisition channel is word of mouth. We look for long-term partnerships only.",
+    "title-item-3": "REAL-TIME COLLABORATION",
+    "copy-item-3": "We are aligned with U.S working hours.",
+    "title-item-4": "FLEXIBLE",
+    "copy-item-4": "No complex contracts or long-term commitments required.",
+    "title-item-5": "COST-EFFECTIVE",
+    "copy-item-5": "Reduce costs up to 50% compared to U.S based resources."
+  },
+  "clients": {
+    "title": "CLIENTS"
+  },
+  "contact-us": {
+    "title": "LET'S WORK TOGETHER!",
+    "copy": "We would love to chat about your project. Fill out this form, and we will get back to you as soon as posible.",
+    "your-name": "Your Name",
+    "your-email": "Your Email",
+    "your-messages": "Your Messages",
+    "send": "SEND",
+    "thanks": "Thanks!",
+    "error": "Ooops! There was an error."
+  },
+  "footer": {
+    "we": "About Us",
+    "services": "Services",
+    "contact": "Contact",
+    "copy-1": "COPYRIGHT ©2020 DEV4 PLUS S.A.S.",
+    "copy-2": "Made with love by DEV4 TEAM"
+  }
+}
