@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "gatsby"
 import LanguageSelector from '../language-selector';
 import { Text } from "../../containers/language" 
 
