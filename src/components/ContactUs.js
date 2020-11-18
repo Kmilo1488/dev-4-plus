@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { Text } from '../containers/language';
 import { Grid, TextField } from "@material-ui/core"
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
 import ContactUsImg from "../images/ContactUs/contact-us.png"
 
@@ -106,7 +109,7 @@ const Button = styled.button`
 `
 
 const ContactUs = () => {
-  
+
   const classes = useStyles();
 
   const [status, setStatus] = useState('');
@@ -150,6 +153,7 @@ const ContactUs = () => {
             method="POST">
             <TextField
               id="name"
+              name="name"
               label={<Text tkey="contact-us" tid="your-name" />}
               color="secondary"
               margin="normal"
@@ -158,14 +162,39 @@ const ContactUs = () => {
 
             <TextField
               id="email"
+              name="email"
               label={<Text tkey="contact-us" tid="your-email" />}
               color="secondary"
               margin="normal"
               fullWidth
-
             />
+            
+            <FormControl margin="normal">
+              <InputLabel color="secondary" htmlFor="budget-label">
+                <Text tkey="contact-us" tid="your-budget" />
+              </InputLabel>
+              <Select
+                native
+                id="budget"
+                name="budget"
+                color="secondary"
+                inputProps={{
+                  name: "budget",
+                  id: "budget-label"
+                }}
+              >
+                <option aria-label="None" value="" />
+                <option value="$2.000 - $3.000">$2.000 - $3.000</option>
+                <option value="$3.000 - $10.000">$3.000 - $10.000</option>
+                <option value="$10.000 - $30.000">$10.000 - $30.000</option>
+                <option value="$30.000 - $100.000">$30.000 - $100.000</option>
+                <option value="$100.000 + ">$100.000 + </option>           
+              </Select>
+            </FormControl>
+
             <TextField
               id="message"
+              name="message"
               label={<Text tkey="contact-us" tid="your-messages" />}
               color="secondary"
               margin="normal"

@@ -89,22 +89,26 @@ const Hamburger = styled.div`
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
+  const handleClick = () => {
+    setNavbarOpen(!navbarOpen)
+  }
+
   return (
     <Navigation>
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
-        onClick={() => setNavbarOpen(!navbarOpen)}
+        onClick={() => handleClick()}
       >
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks />
+          <NavbarLinks handleClick={handleClick}/>
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks />
+            <NavbarLinks handleClick={handleClick}/>
         </Navbox>
       )}
     </Navigation>

@@ -7,6 +7,7 @@ import ImageDesktop from '../images/home_image.png'
 import ImageMobile from '../images/home_image_mobile.png'
 import RedDot from '../images/red_dot.png'
 import { Container } from "@material-ui/core";
+
 const Image = styled.img`
   height: auto;
 `
@@ -128,6 +129,11 @@ const ButtonText = styled.div`
   }
 `
 
+const Link = styled.a`
+  color: transparent;
+  text-decoration: none;
+`
+
 const Header = () => {
 
   return (
@@ -147,9 +153,13 @@ const Header = () => {
           </TextCopy>
           <Button> 
             <Label>
-              <ButtonText>
-                <Text tkey="header" tid="contact-us" />
-              </ButtonText>
+              <a href="#contact-us">
+                <ButtonText>
+                  <Link>
+                    <Text tkey="header" tid="contact-us" />
+                  </Link>
+                </ButtonText>             
+              </a>
             </Label>
           </Button>
         </GridCopy>
@@ -170,9 +180,13 @@ const Header = () => {
           </TextCopy>
           <Button> 
             <Label>
-              <ButtonText>
-                <Text tkey="header" tid="contact-us" />
-              </ButtonText>
+              <a href="#contact-us">
+                <ButtonText>
+                  <Link>
+                    <Text tkey="header" tid="contact-us" />
+                  </Link>
+                </ButtonText>             
+              </a>
             </Label>
           </Button>
         </GridCopy>

@@ -47,19 +47,22 @@ const NavHome = styled(NavItem)`
   font-weight: bold;
 `
 
-const NavbarLinks = () => {
+const NavbarLinks = (props) => {
+
+  const { handleClick } = props
+  
   return (
     <>
-      <NavHome href="/">
+      <NavHome onClick={handleClick} href="/">
         <Text tkey={"menu"} tid="home" />
       </NavHome>
-      <NavItem href="#what-do">
+      <NavItem onClick={handleClick} href="#what-do">
         <Text tkey="menu" tid="products"/>
       </NavItem>
-      <NavItem href="#dna">
+      <NavItem onClick={handleClick} href="#dna">
         <Text tkey="menu" tid="about_us"/>
       </NavItem>
-      <NavItem href="#contact-us">
+      <NavItem onClick={handleClick} href="#contact-us">
         <Text tkey="menu" tid="contact"/>
       </NavItem>
       <LanguageSelector />
