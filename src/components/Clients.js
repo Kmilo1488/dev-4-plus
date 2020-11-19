@@ -12,7 +12,7 @@ import Client6 from "../images/Clients/6.png"
 const ClientsBody = styled.div`
   text-align: center;
   color: #A0A0A0;
-  padding: 40px 0;
+  padding: 60px 0;
   background: url(${ClientsBackground});
   background-repeat: no-repeat;
   background-size: 150% 120%;
@@ -24,9 +24,9 @@ const ClientContent = styled.div`
   overflow-x: auto;
   align-items: center; 
   justify-content: space-around;
-
-  @media (max-width: 768px) {
-    justify-content: inherit;
+  margin: 0 10px;
+  @media (max-width: 1280px) {
+    justify-content: flex-start;
   }
 `
 
@@ -45,7 +45,7 @@ const ClientImage = styled.img`
 `
 
 const ClientImageT = styled.img`
-  height: 100px;
+  height: 90px;
 `
 
 const Title = styled.h1`
@@ -67,19 +67,19 @@ const Clients = () => {
       <ClientsItems>
         <ClientContent>
           <ClientItem>
+            <ClientImage src={Client4} />
+          </ClientItem>
+
+          <ClientItem>
             <ClientImage src={Client1} />
           </ClientItem>
 
           <ClientItem>
-            <ClientImage src={Client2} />
+            <ClientImageT src={Client2} />
           </ClientItem>
 
           <ClientItem>
             <ClientImage src={Client3} />
-          </ClientItem>
-
-          <ClientItem>
-            <ClientImageT src={Client4} />
           </ClientItem>
 
           <ClientItem>

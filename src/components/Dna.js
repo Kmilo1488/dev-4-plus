@@ -31,15 +31,14 @@ const ImageItemL = styled.img`
 const DnaContainer = styled(Container)`
   text-align: center;
   color: #A0A0A0;
-  margin-top: 20px;
+  margin-top: 140px;
 `
 
 const DnaContentH = styled.div`
   display: flex;
   background: url(${ParticlesImg});
   width: 100%, 100%;
-    height: 100%, 100%;
-
+  height: 100%, 100%;
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -55,14 +54,15 @@ const DnaContentH = styled.div`
 
 const DnaContentV = styled.div`
   display: none;
+  margin: 60px 0;
+  background-image: url(${ParticlesLImgMobile}), url(${ParticlesRImgMobile});
+  background-size: auto 120%;
+  background-repeat: no-repeat;
+  background-position: left center, right center;
+  padding: 100px 0;
+  text-align: center;
   @media (max-width: 768px) and (min-width: 320px) {
     display: block;
-    background-image: url(${ParticlesLImgMobile}), url(${ParticlesRImgMobile});
-    background-size: auto 120%;
-    background-repeat: no-repeat;
-    background-position: left center, right center;
-    padding: 100px 0;
-    text-align: center;
   } 
 `
 
@@ -154,8 +154,7 @@ const LineBottom2 = styled(LineBottom)`
 
 const Title = styled.h1`
   font-size: 60px;
-  margin: 0;
-  
+
   @media (max-width: 767px) {
     font-size: 30px;
   }
@@ -165,19 +164,20 @@ const Space = styled.div`
   height: 15px;
   background-image: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   max-width: 20%;
-  margin: 70px auto;
+  margin: 40px auto;
   border-radius: 30px;
 
   @media (max-width: 767px) {
+    max-width: 30%;
     height: 7px !important;
-    margin: 40px auto !important;
+    margin: 20px auto !important;
   }
 `
 
 const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
-  margin: 70px auto;
+  margin: 50px auto 70px;
 
   @media (max-width: 768px) {
     font-size: 20px !important;

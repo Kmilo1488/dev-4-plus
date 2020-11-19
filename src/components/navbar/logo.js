@@ -11,7 +11,7 @@ const LogoWrap = styled.div`
   }
 `
 const Img = styled.img`
-  height: 60px;
+  height: 80px;
 `
 
 const Logo = () => {

@@ -14,8 +14,17 @@ const FooterContainer = styled.div`
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  padding: 10px 0;
+  padding: 120px 0 30px;
 
+  @media (max-width: 1024px) and (min-width: 768px) {
+    background-image: url(${FooterBg});
+    background-position: -80px center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    padding: 90px 0 30px;
+    width: 100%;
+    height: 40%;
+  }
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -23,7 +32,7 @@ const FooterContainer = styled.div`
     background-position: -100px center;
     background-size: auto 100%;
     background-repeat: no-repeat;
-    padding: 30px 0;
+    padding: 90px 0 30px;
     width: 100%;
     height: 40%;
   }
@@ -37,11 +46,11 @@ const FooterContent = styled.div`
   align-items: center;
   align-content: center;
   justify-content: space-around;
-  margin-top: 140px;
+  margin: 180px 0;
 
   @media (max-width: 767px) {
     flex-direction: column;
-    margin-top: 70px;
+    margin: 80px 0;;
   }
 `
 

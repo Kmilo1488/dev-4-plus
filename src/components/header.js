@@ -1,5 +1,4 @@
 import React from "react"
-import Navbar from "./navbar/navbar"
 import { Text } from '../containers/language';
 import Grid from '@material-ui/core/Grid';
 import styled from "styled-components"
@@ -8,36 +7,42 @@ import ImageMobile from '../images/home_image_mobile.png'
 import RedDot from '../images/red_dot.png'
 import { Container } from "@material-ui/core";
 
+const ContainerHeader = styled(Container)`
+  margin: 160px 0;
+  padding: 0 !important;
+`
+
 const Image = styled.img`
   height: auto;
 `
 
 const TextHeader = styled.h1`
-  margin-top: 0;
   height: auto;
   font-size: 3rem;
-  color: gray;
+  color: #130C30;
+  margin: 0 0 10px;
 
   @media (max-width: 425px) and (min-width: 320px)  {
-    font-size: 1rem;
+    font-size: 1.5rem;
   } 
 
   @media (max-width: 768px) and (min-width: 426px)  {
-    font-size: 2rem;
+    font-size: 2.3rem;
   } 
 `
 
 const TextCopy = styled.h3`
-  margin-top: 0;
+  margin: 20px 0 30px;
   color: gray;
   font-size: 2rem;
     
   @media (max-width: 425px) and (min-width: 320px)  {
-    font-size: .8rem;
+    margin: 10px 0 15px;
+    font-size: 1rem;
   } 
 
   @media (max-width: 768px) and (min-width: 426px)  {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   } 
 `
 
@@ -50,6 +55,7 @@ const ImageHeader = styled(Image)`
 `
 
 const ImageDot = styled(Image)`
+  margin: 0 2px;
   @media (min-width: 320px) {
     width: .5rem;
   }
@@ -119,13 +125,13 @@ const Label = styled.div`
 
 const ButtonText = styled.div`
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   @media (min-width: 320px) {
-    font-size: .75rem;
+    font-size: 1rem;
   }
 `
 
@@ -137,11 +143,7 @@ const Link = styled.a`
 const Header = () => {
 
   return (
-    <>
-      <Container>
-        <Navbar />
-      </Container>
-
+    <ContainerHeader>
       <GridHeader>
         <GridCopy item xs={6}>
           <TextHeader>
@@ -168,7 +170,6 @@ const Header = () => {
         </Grid>
       </GridHeader>
 
-
       <GridHeaderMobile>
         <GridCopy item xs={6}>
           <TextHeader>
@@ -194,7 +195,7 @@ const Header = () => {
           <ImageHeader src={ImageMobile}/>
         </Grid>
       </GridHeaderMobile>
-    </>
+    </ContainerHeader>
   )
 }
 

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 const ContactUsContainer = styled.div`
   text-align: center;
   color: #A0A0A0;
-  margin: 40px 0;
+  margin: 160px 0 120px;
 `
 
 const Title = styled.h1`
@@ -33,19 +33,20 @@ const Space = styled.div`
   height: 15px;
   background-image: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   max-width: 20%;
-  margin: 70px auto;
+  margin: 40px auto;
   border-radius: 30px;
 
   @media (max-width: 767px) {
+    max-width: 30%;
     height: 7px !important;
-    margin: 40px auto !important;
+    margin: 20px auto !important;
   }
 `
 
 const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
-  margin: 70px auto;
+  margin: 50px auto;
 
   @media (max-width: 768px) {
     font-size: 20px !important;
@@ -58,13 +59,14 @@ const Gridheader = styled(Grid)`
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  padding: 0 20px;
+  padding: 80px 20px 40px;
 `
 
 const FormContent = styled(Grid)`
   display: flex;
   justify-content: center;
   align-content: center;
+  padding: 0 0 80px;
 `
 
 const Form = styled.form`
@@ -86,13 +88,13 @@ const Form = styled.form`
 `
 
 const ImageGrid = styled(Grid)`
-  margin: 5px, 20px;
+  display: flex;
+  align-items: center;
 `
 
 const ImageContactUs = styled.img`
   max-width: 100%;
   max-height: auto;
-  margin-top: 40px;
 `
 
 const Button = styled.button`
@@ -208,7 +210,7 @@ const ContactUs = () => {
             </>      
           </Form>
         </FormContent>
-        <ImageGrid container item xs={12} md={5}>
+        <ImageGrid item xs={12} md={5}>
           <ImageContactUs src={ContactUsImg} />
         </ImageGrid>
       </Gridheader>

@@ -1,5 +1,4 @@
 import React from "react"
-import Container from '@material-ui/core/Container';
 import { Text } from '../containers/language';
 import styled from "styled-components"
 import Grid from '@material-ui/core/Grid';
@@ -11,7 +10,6 @@ import ManagementIcon from "../images/WhatDoItems/management.png"
 import qualityIcon from "../images/WhatDoItems/quality.png"
 import strategyIcon from "../images/WhatDoItems/strategy.png"
 import TestingIcon from "../images/WhatDoItems/testing.png"
-
 
 const WhatDoBox = styled.div`
   background: linear-gradient(180deg, transparent 50%, #E7E6EA 50%);
@@ -30,12 +28,24 @@ const WhatDoContent = styled.div`
   align-items: center;
   align-content: center;
 
+  @media (max-width: 1024px) and (min-width: 768px) {
+    background-image: url(${WhatDoImageMobile});
+    background-position: -80px center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+
   @media (max-width: 768px) {
     background-image: url(${WhatDoImageMobile});
     background-position: -100px center;
     background-size: auto 100%;
     background-repeat: no-repeat;
   }
+`
+
+const WhatDoContainer = styled.div`
+  max-width: 90%;
+  margin: 90px auto;
 `
 
 const Title = styled.h1`
@@ -50,19 +60,20 @@ const Space = styled.div`
   height: 15px;
   background-image: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   max-width: 20%;
-  margin: 70px auto;
+  margin: 40px auto;
   border-radius: 30px;
 
   @media (max-width: 767px) {
+    max-width: 30%;
     height: 7px !important;
-    margin: 40px auto !important;
+    margin: 20px auto !important;
   }
 `
 
 const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
-  margin: 70px auto;
+  margin: 50px auto 70px;
 
   @media (max-width: 768px) {
     font-size: 20px !important;
@@ -88,7 +99,7 @@ const GridItem = styled(Grid)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 30px;
+  padding: 60px;
 
   @media (max-width: 767px) {
     padding: 20px !important;
@@ -111,12 +122,11 @@ const CopyItem = styled.p`
   }
 `
 
-
 const WhatDo = () => {
   return (
     <WhatDoBox id="what-do">
       <WhatDoContent>
-        <Container>
+        <WhatDoContainer>
           <Title>
             <Text tkey="what-do" tid="title" />
           </Title>
@@ -125,7 +135,7 @@ const WhatDo = () => {
             <Text tkey="what-do" tid="copy" />
           </Copy>
           <GridConatiner container>
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={strategyIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="product-strategy" />
@@ -134,7 +144,7 @@ const WhatDo = () => {
                 <Text tkey="what-do" tid="product-strategy-copy" />
               </CopyItem>
             </GridItem> 
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={DesignIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="ui-ux-design" />
@@ -143,7 +153,7 @@ const WhatDo = () => {
                 <Text tkey="what-do" tid="ui-ux-design-copy" />
               </CopyItem>
             </GridItem> 
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={TestingIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="user-research-testing" />
@@ -152,7 +162,7 @@ const WhatDo = () => {
                 <Text tkey="what-do" tid="user-research-testing-copy" /> 
               </CopyItem>
             </GridItem> 
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={FullStackIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="full-stack-development" />
@@ -161,7 +171,7 @@ const WhatDo = () => {
                 <Text tkey="what-do" tid="full-stack-development-copy" />
               </CopyItem>
             </GridItem> 
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={ManagementIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="project-management" />
@@ -170,7 +180,7 @@ const WhatDo = () => {
                 <Text tkey="what-do" tid="project-management-copy" />
               </CopyItem>
             </GridItem> 
-            <GridItem container item xs={12} sm={6} md={4}>
+            <GridItem container item xs={12} sm={6} lg={4}>
               <Image src={qualityIcon} />
               <TitleItem>
                 <Text tkey="what-do" tid="quality-assurance" />
@@ -180,7 +190,7 @@ const WhatDo = () => {
               </CopyItem>
             </GridItem> 
           </GridConatiner>
-        </Container>
+        </WhatDoContainer>
       </WhatDoContent>
     </WhatDoBox>
   )

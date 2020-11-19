@@ -1,23 +1,27 @@
 
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import Logo from "./logo"
 import NavbarLinks from "./navbar-links"
+import { Container } from "@material-ui/core"
 
 const Navigation = styled.nav`
-  height: 5vh;
+  height: auto;
   display: flex;
   background-color: #fff;
   position: relative;
   justify-content: space-between;
+  align-items: center;
   text-transform: uppercase;
-  margin: 10px auto;
-  z-index: 2;
+  margin: 20px auto;
+  z-index: 1;
   align-self: center;
+  box-shadow: 0px 0px 20px 25px #fff;
 
   @media (max-width: 768px) {
-    margin: 5px auto;
-    position: sticky;
+    margin: 0 auto;
+    padding: 5px 10px;
+    position: fixed;
     height: 8vh;
     top: 0;
     left: 0;
@@ -48,9 +52,9 @@ const Navbox = styled.div`
     width: 100%;
     justify-content: flex-start;
     padding-top: 10vh;
-    background-color: #fff;
+    background-color: transparent;
     transition: all 0.3s ease-in;
-    top: 8vh;
+    top: 10vh;
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `
@@ -86,32 +90,23 @@ const Hamburger = styled.div`
     top: 10px;
   }
 `
-const Navbar = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
-
-  const handleClick = () => {
-    setNavbarOpen(!navbarOpen)
-  }
+const Navbar = ({handleClick, navbarOpen}) => {
 
   return (
-    <Navigation>
-      <Logo />
-      <Toggle
-        navbarOpen={navbarOpen}
-        onClick={() => handleClick()}
-      >
-        {navbarOpen ? <Hamburger open /> : <Hamburger />}
-      </Toggle>
-      {navbarOpen ? (
-        <Navbox>
+    <Container>
+      <Navigation>
+        <Logo />
+        <Toggle
+          navbarOpen={navbarOpen}
+          onClick={() => handleClick()}
+        >
+          <Hamburger open={navbarOpen} />
+        </Toggle>
+        <Navbox open={!navbarOpen}>
           <NavbarLinks handleClick={handleClick}/>
         </Navbox>
-      ) : (
-        <Navbox open>
-            <NavbarLinks handleClick={handleClick}/>
-        </Navbox>
-      )}
-    </Navigation>
+      </Navigation>
+    </Container>
   )
 }
 
