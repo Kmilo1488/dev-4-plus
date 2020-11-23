@@ -10,7 +10,7 @@ import ContactUs from "./ContactUs"
 import Footer from "./Footer"
 
 const Body = styled.div`
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: "Poppins", sans-serif;
 `
 
 const Content = styled.div`

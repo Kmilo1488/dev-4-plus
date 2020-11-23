@@ -47,6 +47,7 @@ const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
   margin: 50px auto;
+  font-weight: 300;
 
   @media (max-width: 768px) {
     font-size: 20px !important;
@@ -69,9 +70,19 @@ const FormContent = styled(Grid)`
   padding: 0 0 80px;
 `
 
+const FormItems = styled.div`
+  display: flex;
+  justify-content: space-around;
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+`
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  flex-flow: column wrap;
   justify-content: center;
   margin: 10px 40px;
   padding: 40px 30px;
@@ -153,56 +164,90 @@ const ContactUs = () => {
             onSubmit={submitForm}
             action="https://formspree.io/f/xaylevkr"
             method="POST">
-            <TextField
-              id="name"
-              name="name"
-              label={<Text tkey="contact-us" tid="your-name" />}
-              color="secondary"
-              margin="normal"
-              fullWidth
-            />
-
-            <TextField
-              id="email"
-              name="email"
-              label={<Text tkey="contact-us" tid="your-email" />}
-              color="secondary"
-              margin="normal"
-              fullWidth
-            />
             
-            <FormControl margin="normal">
-              <InputLabel color="secondary" htmlFor="budget-label">
-                <Text tkey="contact-us" tid="your-budget" />
-              </InputLabel>
-              <Select
-                native
-                id="budget"
-                name="budget"
+            <FormItems>
+              <TextField
+                id="name"
+                name="name"
+                label={<Text tkey="contact-us" tid="your-name" />}
                 color="secondary"
-                inputProps={{
-                  name: "budget",
-                  id: "budget-label"
-                }}
-              >
-                <option aria-label="None" value="" />
-                <option value="$2.000 - $3.000">$2.000 - $3.000</option>
-                <option value="$3.000 - $10.000">$3.000 - $10.000</option>
-                <option value="$10.000 - $30.000">$10.000 - $30.000</option>
-                <option value="$30.000 - $100.000">$30.000 - $100.000</option>
-                <option value="$100.000 + ">$100.000 + </option>           
-              </Select>
-            </FormControl>
+                margin="normal"
+              />
 
-            <TextField
-              id="message"
-              name="message"
-              label={<Text tkey="contact-us" tid="your-messages" />}
-              color="secondary"
-              margin="normal"
-              fullWidth
-              multiline
-            />
+              <TextField
+                id="email"
+                name="email"
+                label={<Text tkey="contact-us" tid="your-email" />}
+                color="secondary"
+                margin="normal"
+              />
+            </FormItems>
+
+            <FormItems>
+              <TextField
+                id="phone"
+                name="phone"
+                label={<Text tkey="contact-us" tid="your-phone" />}
+                color="secondary"
+                margin="normal"
+                multiline
+              />
+
+              <TextField
+                id="message"
+                name="message"
+                label={<Text tkey="contact-us" tid="your-messages" />}
+                color="secondary"
+                margin="normal"
+                multiline
+              />
+            </FormItems>
+
+            <FormItems>
+              <FormControl size="medium">
+                <InputLabel color="secondary" htmlFor="budget-label">
+                  <Text tkey="contact-us" tid="your-budget" />
+                </InputLabel>
+                <Select
+                  native
+                  id="budget"
+                  name="budget"
+                  color="secondary"
+                  inputProps={{
+                    name: "budget",
+                    id: "budget-label"
+                  }}
+                >
+                  <option aria-label="None" value="" />
+                  <option value="$2.000 - $3.000">$2.000 - $3.000</option>
+                  <option value="$3.000 - $10.000">$3.000 - $10.000</option>
+                  <option value="$10.000 - $30.000">$10.000 - $30.000</option>
+                  <option value="$30.000 - $100.000">$30.000 - $100.000</option>
+                  <option value="$100.000 + ">$100.000 + </option>           
+                </Select>
+              </FormControl>
+                
+              <FormControl size="medium">
+                <InputLabel color="secondary" htmlFor="country-label">
+                  <Text tkey="contact-us" tid="your-country" />
+                </InputLabel>
+                <Select
+                  native
+                  id="country"
+                  name="country"
+                  color="secondary"
+                  inputProps={{
+                    name: "budget",
+                    id: "country-label"
+                  }}
+                >
+                  <option aria-label="None" value="" />
+                  <option value="Canada">Canada</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="United States">United States</option>
+                </Select>
+              </FormControl>
+            </FormItems>
 
             <>
               {status === "SUCCESS" ? <p><Text tkey="contact-us" tid="thanks" /></p> : <Button><Text tkey="contact-us" tid="send" /></Button>}

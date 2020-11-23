@@ -73,6 +73,7 @@ const Space = styled.div`
 const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
+  font-weight: 300;
   margin: 50px auto 70px;
 
   @media (max-width: 768px) {

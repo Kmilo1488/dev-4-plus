@@ -34,6 +34,7 @@ const TextHeader = styled.h1`
 const TextCopy = styled.h3`
   margin: 20px 0 30px;
   color: gray;
+  font-weight: 300;
   font-size: 2rem;
     
   @media (max-width: 425px) and (min-width: 320px)  {

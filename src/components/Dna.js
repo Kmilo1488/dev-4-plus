@@ -178,6 +178,7 @@ const Copy = styled.p`
   font-size: 30px;
   max-width: 50%;
   margin: 50px auto 70px;
+  font-weight: 300;
 
   @media (max-width: 768px) {
     font-size: 20px !important;
