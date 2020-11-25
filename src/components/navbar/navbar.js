@@ -1,9 +1,11 @@
 
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Logo from "./logo"
 import NavbarLinks from "./navbar-links"
 import { Container } from "@material-ui/core"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 const Navigation = styled.nav`
   height: auto;
@@ -16,12 +18,10 @@ const Navigation = styled.nav`
   margin: 20px auto;
   z-index: 1;
   align-self: center;
-  box-shadow: 0px 0px 20px 25px #fff;
 
   @media (max-width: 768px) {
     margin: 0 auto;
     padding: 5px 10px;
-    position: fixed;
     height: 8vh;
     top: 0;
     left: 0;
@@ -37,6 +37,7 @@ const Toggle = styled.div`
 
   @media (max-width: 768px) {
     display: flex;
+    align-items: center;
   }
 `
 
@@ -52,45 +53,19 @@ const Navbox = styled.div`
     width: 100%;
     justify-content: flex-start;
     padding-top: 10vh;
-    background-color: transparent;
+    background-color: white;
     transition: all 0.3s ease-in;
     top: 10vh;
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `
 
-const Hamburger = styled.div`
-  background-color: #111;
-  width: 30px;
-  height: 3px;
-  transition: all .3s linear;
-  align-self: center;
-  position: relative;
-  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+const Navbar = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false)
 
-  ::before,
-  ::after {
-    width: 30px;
-    height: 3px;
-    background-color: #111;
-    content: "";
-    position: absolute;
-    transition: all 0.3s linear;
+  const handleClick = () => {
+    setNavbarOpen(!navbarOpen)
   }
-
-  ::before {
-    transform: ${props =>
-      props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
-    top: -10px;
-  }
-
-  ::after {
-    opacity: ${props => (props.open ? "0" : "1")};
-    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
-    top: 10px;
-  }
-`
-const Navbar = ({handleClick, navbarOpen}) => {
 
   return (
     <Container>
@@ -100,7 +75,7 @@ const Navbar = ({handleClick, navbarOpen}) => {
           navbarOpen={navbarOpen}
           onClick={() => handleClick()}
         >
-          <Hamburger open={navbarOpen} />
+          <FontAwesomeIcon icon={faBars} color="black" size="2x"/>
         </Toggle>
         <Navbox open={!navbarOpen}>
           <NavbarLinks handleClick={handleClick}/>

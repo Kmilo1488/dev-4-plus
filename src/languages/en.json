@@ -7,24 +7,25 @@
   },
   "header": {
     "what-do": "WE BUILD WHAT YOU NEED",
-    "what-do-copy": "We build beautiful consumer facing software that improves business metrics for early-stage companies.",
+    "what-do-copy": "We are experts in web and mobile software development, we specialize in highly complex ideas solutions and building high impact products.",
+    "what-do-copy-2": "We are specialists in creating quality products, through planning, design and development we create high-end products with excellent performance and scalability.",
     "contact-us": "CONTACT US"
   },
   "what-do": {
     "title": "WHAT WE DO",
-    "copy": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet",
+    "copy": "DEV4Plus is a Colombia-based software services firm with offices in Bogotá. Our focus is on making high-value products using emerging technologies with a high perspective on solving complex problems.",
     "product-strategy": "PRODUCT STRATEGY",
     "product-strategy-copy": "Our main strength is to understand the needs of our customers, our involvement is from beginning to end, we know that products must be created iteratively that will help you achieve products with high impact.",
     "ui-ux-design": "UX/UI DESIGN",
     "ui-ux-design-copy": "We know the importance of creating friendly and intuitive user interfaces that meet high quality standards, we focus on stakeholder feedback applying different usability tests, in order to guarantee that our products always meet the needs of users.",
-    "user-research-testing": "USER RESEARCH & TESTING",
-    "user-research-testing-copy": "We never release a product without gathering both qualitative and quantitative user feedback. From moderated and unmoderated user interviews to usability testing, we ensure that our products always meet the needs of the end user.",
+    "user-research-testing": "INVESTIGATION AND DEVELOPMENT",
+    "user-research-testing-copy": "We work with the customer, proposing innovative solutions with emerging technologies that satisfy the needs of the end user.",
     "full-stack-development": "FULL STACK DEVELOPMENT",
     "full-stack-development-copy": "We have a pull of expert developers working with the latest technologies and software architectures that will take your products to another level.",
     "project-management": "PROJECT MANAGEMENT",
     "project-management-copy": "Our leadership team and project managers work with you to ensure that all projects are completed on time within the estimated budget.",
     "quality-assurance": "QUALITY ASSURANCE",
-    "quality-assurance-copy": "Nothing goes out the door until we put it through a vigorous QA process performed by our in-house quality assurance testers."
+    "quality-assurance-copy": "We submit our products to a rigorous quality and control process in order to guarantee the success of the products we develop."
   },
   "tech": {
     "title": "TECHNOLOGIES",
@@ -52,16 +53,18 @@
   },
   "contact-us": {
     "title": "LET'S WORK TOGETHER!",
-    "copy": "We would love to chat about your project. Fill out this form, and we will get back to you as soon as posible.",
-    "your-name": "Your Name",
-    "your-email": "Your Email",
-    "your-budget": "Your Budget",
-    "your-country": "Your Country",
-    "your-messages": "Your Messages",
-    "your-phone": "Your Phone",
+    "copy": "We would love to chat about your project. Fill out this form and we will get back to you as soon as possible.",
+    "your-name": "Name",
+    "your-email": "Email",
+    "your-budget": "What budget do you have?",
+    "your-country": "Country",
+    "your-messages": "Project brief",
+    "your-phone": "Phone",
+    "your-interesting": "Are you interested in a business or personal project?",
+    "your-city": "City,",
     "send": "SEND",
     "thanks": "Thanks!",
-    "error": "Ooops! There was an error."
+    "error": "Ooops! Try again please."
   },
   "footer": {
     "we": "About Us",

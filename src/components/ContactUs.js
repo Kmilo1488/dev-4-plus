@@ -5,14 +5,7 @@ import { Grid, TextField } from "@material-ui/core"
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-import { makeStyles } from '@material-ui/core/styles';
 import ContactUsImg from "../images/ContactUs/contact-us.png"
-
-const useStyles = makeStyles({
-  form: {
-    width: '100%',
-  },
-});
 
 const ContactUsContainer = styled.div`
   text-align: center;
@@ -70,14 +63,6 @@ const FormContent = styled(Grid)`
   padding: 0 0 80px;
 `
 
-const FormItems = styled.div`
-  display: flex;
-  justify-content: space-around;
-  @media (max-width: 767px) {
-    flex-direction: column;
-  }
-`
-
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -123,8 +108,6 @@ const Button = styled.button`
 
 const ContactUs = () => {
 
-  const classes = useStyles();
-
   const [status, setStatus] = useState('');
 
   const submitForm = (ev) => {
@@ -157,97 +140,137 @@ const ContactUs = () => {
       </Copy>
 
       <Gridheader container >
-        <FormContent container spacing={4} item xs={12} md={5}>
+        <FormContent container spacing={4} item xs={12} md={6}>
           <Form
-            className={classes.form}
             noValidate
             onSubmit={submitForm}
             action="https://formspree.io/f/xaylevkr"
             method="POST">
             
-            <FormItems>
-              <TextField
-                id="name"
-                name="name"
-                label={<Text tkey="contact-us" tid="your-name" />}
-                color="secondary"
-                margin="normal"
-              />
-
-              <TextField
-                id="email"
-                name="email"
-                label={<Text tkey="contact-us" tid="your-email" />}
-                color="secondary"
-                margin="normal"
-              />
-            </FormItems>
-
-            <FormItems>
-              <TextField
-                id="phone"
-                name="phone"
-                label={<Text tkey="contact-us" tid="your-phone" />}
-                color="secondary"
-                margin="normal"
-                multiline
-              />
-
-              <TextField
-                id="message"
-                name="message"
-                label={<Text tkey="contact-us" tid="your-messages" />}
-                color="secondary"
-                margin="normal"
-                multiline
-              />
-            </FormItems>
-
-            <FormItems>
-              <FormControl size="medium">
-                <InputLabel color="secondary" htmlFor="budget-label">
-                  <Text tkey="contact-us" tid="your-budget" />
-                </InputLabel>
-                <Select
-                  native
-                  id="budget"
-                  name="budget"
+            <Grid container spacing={3}>
+              <Grid container item xs={12} md={6}>
+                <TextField
+                  id="name"
+                  name="name"
+                  label={<Text tkey="contact-us" tid="your-name" />}
                   color="secondary"
-                  inputProps={{
-                    name: "budget",
-                    id: "budget-label"
-                  }}
-                >
-                  <option aria-label="None" value="" />
-                  <option value="$2.000 - $3.000">$2.000 - $3.000</option>
-                  <option value="$3.000 - $10.000">$3.000 - $10.000</option>
-                  <option value="$10.000 - $30.000">$10.000 - $30.000</option>
-                  <option value="$30.000 - $100.000">$30.000 - $100.000</option>
-                  <option value="$100.000 + ">$100.000 + </option>           
-                </Select>
-              </FormControl>
-                
-              <FormControl size="medium">
-                <InputLabel color="secondary" htmlFor="country-label">
-                  <Text tkey="contact-us" tid="your-country" />
-                </InputLabel>
-                <Select
-                  native
-                  id="country"
-                  name="country"
+                  fullWidth
+                />
+              </Grid>
+
+              <Grid container item xs={12} md={6}> 
+                <TextField
+                  id="email"
+                  name="email"
+                  label={<Text tkey="contact-us" tid="your-email" />}
                   color="secondary"
-                  inputProps={{
-                    name: "budget",
-                    id: "country-label"
-                  }}
-                >
-                  <option aria-label="None" value="" />
-                  <option value="Canada">Canada</option>
-                  <option value="Colombia">Colombia</option>
-                  <option value="United States">United States</option>
-                </Select>
-              </FormControl>
-            </FormItems>
+                  fullWidth
+                />
+              </Grid>
+
+              <Grid container item xs={12} md={6}>
+                <TextField
+                  id="phone"
+                  name="phone"
+                  label={<Text tkey="contact-us" tid="your-phone" />}
+                  color="secondary"
+                  multiline
+                  fullWidth    
+                />
+              </Grid>
+
+              <Grid container item xs={12} md={6}>
+                <FormControl size="medium" fullWidth>
+                  <InputLabel color="secondary" htmlFor="country-label">
+                    <Text tkey="contact-us" tid="your-country" />
+                  </InputLabel>
+                  <Select
+                    native
+                    id="country"
+                    name="country"
+                    color="secondary"
+                    inputProps={{
+                      name: "budget",
+                      id: "country-label"
+                    }}
+                  >
+                    <option aria-label="None" value="" />
+                    <option value="Canada">Canada</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="United States">United States</option>
+                  </Select>
+                </FormControl>
+              </Grid>
+
+              <Grid container item xs={12} md={6}>
+                <TextField
+                  id="city"
+                  name="city"
+                  label={<Text tkey="contact-us" tid="your-city" />}
+                  color="secondary"
+                  multiline
+                  fullWidth    
+                />
+              </Grid>
+
+              <Grid container item xs={12} md={6} >
+                <FormControl size="medium" fullWidth >
+                  <InputLabel color="secondary" htmlFor="budget-label">
+                    <Text tkey="contact-us" tid="your-budget" />
+                  </InputLabel>
+                  <Select
+                    native
+                    id="budget"
+                    name="budget"
+                    color="secondary"
+                    inputProps={{
+                      name: "budget",
+                      id: "budget-label"
+                    }}
+                  >
+                    <option aria-label="None" value="" />
+                    <option value="$2.000 - $5.000">$2.000 - $5.000</option>
+                    <option value="$5.000 - $10.000">$5.000 - $10.000</option>
+                    <option value="$10.000 - $50.000">$10.000 - $50.000</option>
+                    <option value="$50.000 - $100.000">$50.000 - $100.000</option>
+                    <option value="$100.000 + ">$100.000 + </option>           
+                  </Select>
+                </FormControl>
+              </Grid>
+
+              <Grid container item xs={12} >
+                <FormControl size="medium" fullWidth >
+                  <InputLabel color="secondary" htmlFor="interesting-label">
+                    <Text tkey="contact-us" tid="your-interesting" />
+                  </InputLabel>
+                  <Select
+                    native
+                    id="budget"
+                    name="budget"
+                    color="secondary"
+                    inputProps={{
+                      name: "interesting",
+                      id: "interesting-label"
+                    }}
+                  >
+                    <option aria-label="None" value="" />
+                    <option value="personal">Personal</option>
+                    <option value="Business">Business / Empresarial</option>   
+                  </Select>
+                </FormControl>
+              </Grid>
+
+              <Grid container item xs={12}>
+                <TextField
+                  id="message"
+                  name="message"
+                  label={<Text tkey="contact-us" tid="your-messages" />}
+                  color="secondary"
+                  multiline
+                  fullWidth  
+                />
+              </Grid>
+            </Grid>
 
             <>
               {status === "SUCCESS" ? <p><Text tkey="contact-us" tid="thanks" /></p> : <Button><Text tkey="contact-us" tid="send" /></Button>}
@@ -255,7 +278,7 @@ const ContactUs = () => {
             </>      
           </Form>
         </FormContent>
-        <ImageGrid item xs={12} md={5}>
+        <ImageGrid item xs={12} md={6}>
           <ImageContactUs src={ContactUsImg} />
         </ImageGrid>
       </Gridheader>

@@ -10,6 +10,7 @@ import { Container } from "@material-ui/core";
 const ContainerHeader = styled(Container)`
   margin: 160px 0;
   padding: 0 !important;
+
 `
 
 const Image = styled.img`
@@ -32,7 +33,7 @@ const TextHeader = styled.h1`
 `
 
 const TextCopy = styled.h3`
-  margin: 20px 0 30px;
+  margin: 10px 0;
   color: gray;
   font-weight: 300;
   font-size: 2rem;
@@ -101,12 +102,12 @@ const Button = styled.div`
   background-image: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   background-origin: border-box;
   background-clip: content-box, border-box;
-  margin: 2px;
+  margin: 25px 0;
   padding: 2px;
   max-width: 40%;
   @media (max-width: 768px) {
     width: 100% !important;
-    margin: 0px !important;
+    margin: 10px 0px !important;
     padding: 0px !important;
     max-width: 100%;
   }
@@ -154,6 +155,9 @@ const Header = () => {
           <TextCopy>
             <Text tkey="header" tid="what-do-copy"/>
           </TextCopy>
+          <TextCopy>
+            <Text tkey="header" tid="what-do-copy-2"/>
+          </TextCopy>
           <Button> 
             <Label>
               <a href="#contact-us">
@@ -179,6 +183,9 @@ const Header = () => {
           </TextHeader>
           <TextCopy>
             <Text tkey="header" tid="what-do-copy"/>
+          </TextCopy>
+          <TextCopy>
+            <Text tkey="header" tid="what-do-copy-2"/>
           </TextCopy>
           <Button> 
             <Label>
