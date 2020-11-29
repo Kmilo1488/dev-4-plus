@@ -155,9 +155,6 @@ const Header = () => {
           <TextCopy>
             <Text tkey="header" tid="what-do-copy"/>
           </TextCopy>
-          <TextCopy>
-            <Text tkey="header" tid="what-do-copy-2"/>
-          </TextCopy>
           <Button> 
             <Label>
               <a href="#contact-us">
@@ -183,9 +180,6 @@ const Header = () => {
           </TextHeader>
           <TextCopy>
             <Text tkey="header" tid="what-do-copy"/>
-          </TextCopy>
-          <TextCopy>
-            <Text tkey="header" tid="what-do-copy-2"/>
           </TextCopy>
           <Button> 
             <Label>
