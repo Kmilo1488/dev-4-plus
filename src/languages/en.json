@@ -61,9 +61,10 @@
     "your-messages": "Project brief",
     "your-phone": "Phone",
     "your-interesting": "Are you interested in a business or personal project?",
+    "your-interesting-mobile": "Business or personal project?",
     "your-city": "City, State",
     "send": "SEND",
-    "thanks": "Thanks!",
+    "thanks": "Thank you very much a Dev4PLUS advisor will contact you",
     "error": "Ooops! Try again please."
   },
   "footer": {

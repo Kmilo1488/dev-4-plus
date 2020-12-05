@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import axios from 'axios'
 import { Text } from '../containers/language';
-import { Grid, TextField } from "@material-ui/core"
+import { Grid, MenuItem, TextField, useMediaQuery } from "@material-ui/core"
 import FormControl from "@material-ui/core/FormControl";
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
 import ContactUsImg from "../images/ContactUs/contact-us.png"
 
 const ContactUsContainer = styled.div`
@@ -94,8 +95,11 @@ const ImageContactUs = styled.img`
 `
 
 const Button = styled.button`
-  margin-top: 70px;
-  padding: 10px 0;
+  cursor: pointer;
+  left:0;
+  right:0;
+  margin: 70px auto 0px;
+  padding: 10px 40px;
   border: 0 solid transparent;
   background-image: linear-gradient(45deg, rgba(236,41,41,1), rgba(83,1,1,1));
   background-repeat: no-repeat;
@@ -106,28 +110,91 @@ const Button = styled.button`
   font-size: 20px;
 `
 
+const RespondTextForm = styled.p`
+  margin-top: 50px;
+`
+
+let ContactUsSchema = Yup.object().shape({ 
+  name: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  email: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required').email('Invalid email'),
+  phone: Yup.string()
+    .min(5, 'Too Short!')
+    .required('Required'),
+  country: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  city: Yup.string()
+    .min(5, 'Too Short!')
+    .required('Required'),
+  budget: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  interesting: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  message: Yup.string()
+    .min(5, 'Too Short!')
+    .required('Required')
+})
+
+const countryOptions = [
+  { value: "canada", label: "Canada" },
+  { value: "colombia", label: "Colombia" },
+  { value: "united states", label: "United States" },
+];
+
+const budgetOptions = [
+  { value: "$2.000 - $5.000", label: "$2.000 - $5.000" },
+  { value: "$5.000 - $10.000", label: "$5.000 - $10.000" },
+  { value: "$10.000 - $50.000", label: "$10.000 - $50.000" },
+  { value: "$50.000 - $100.000", label: "$50.000 - $100.000" },
+  { value: "$100.000 + ", label: "$100.000 + " },
+];
+
+const interestingOptions = [
+  { value: "personal", label: "Personal" },
+  { value: "business", label: "Business / Negocios" },
+];
+
+
+const LabelBudget = () => {
+  const matches = useMediaQuery('(min-width:1280px)');
+  
+  return matches ? <Text tkey="contact-us" tid="your-interesting" /> : <Text tkey="contact-us" tid="your-interesting-mobile" />
+}
+
 const ContactUs = () => {
 
-  const [status, setStatus] = useState('');
+  const [serverState, setServerState] = useState(null);
 
-  const submitForm = (ev) => {
-    ev.preventDefault();
-    const form = ev.target;
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== XMLHttpRequest.DONE) return;
-      if (xhr.status === 200) {
-        form.reset();
-        setStatus("SUCCESS")
-      } else {
-        setStatus("ERROR");
-      }
-    };
-    xhr.send(data);
+  const respondForm = () => {
+    if (serverState === true ) {
+      return <RespondTextForm><Text tkey="contact-us" tid="thanks" /></RespondTextForm>
+    } else if (serverState !== null) {
+      return <RespondTextForm><Text tkey="contact-us" tid="error" /></RespondTextForm>
+    }
   }
+
+  const handleOnSubmit = (values, actions) => {
+    axios({
+      method: "POST",
+      url: "https://formspree.io/xaylevkr",
+      data: values
+    })
+      .then(response => {
+        actions.setSubmitting(false);
+        actions.resetForm();
+        setServerState(true)
+      })
+      .catch(error => {
+        actions.setSubmitting(false);
+        setServerState(false)
+      });
+  };
 
   return (
     <ContactUsContainer id="contact-us">
@@ -140,145 +207,180 @@ const ContactUs = () => {
       </Copy>
 
       <Gridheader container >
-        <FormContent container spacing={4} item xs={12} md={6}>
-          <Form
-            noValidate
-            onSubmit={submitForm}
-            action="https://formspree.io/f/xaylevkr"
-            method="POST">
-            
-            <Grid container spacing={3}>
-              <Grid container item xs={12} md={6}>
-                <TextField
-                  id="name"
-                  name="name"
-                  label={<Text tkey="contact-us" tid="your-name" />}
-                  color="secondary"
-                  fullWidth
-                />
-              </Grid>
+        <FormContent container spacing={4} item sm={12} lg={6}>
+          
+          <Formik
+            initialValues={{
+              name:'',
+              email:'',
+              phone: '',
+              country: '',
+              city: '',
+              budget: '',
+              interesting: '',
+              message: ''
+            }}
+            validationSchema={ContactUsSchema}
+            onSubmit={handleOnSubmit}
+          >
 
-              <Grid container item xs={12} md={6}> 
-                <TextField
-                  id="email"
-                  name="email"
-                  label={<Text tkey="contact-us" tid="your-email" />}
-                  color="secondary"
-                  fullWidth
-                />
-              </Grid>
+            {({ values, errors, touched, handleChange, handleSubmit, isSubmitting }) => (
+              <Form onSubmit={handleSubmit}>
+                <Grid container spacing={3}>
+                  <Grid container item sm={12} lg={6}>
+                    <TextField
+                      id="name"
+                      name="name"
+                      value={values.name}
+                      onChange={handleChange}
+                      touched={touched.name}
+                      error={errors.name}
+                      label={<Text tkey="contact-us" tid="your-name" />}
+                      color="secondary"
+                      fullWidth
+                    />
+                  </Grid>
 
-              <Grid container item xs={12} md={6}>
-                <TextField
-                  id="phone"
-                  name="phone"
-                  label={<Text tkey="contact-us" tid="your-phone" />}
-                  color="secondary"
-                  multiline
-                  fullWidth    
-                />
-              </Grid>
+                  <Grid container item sm={12} lg={6}> 
+                    <TextField
+                      id="email"
+                      name="email"
+                      value={values.email}
+                      touched={touched.email}
+                      onChange={handleChange}
+                      error={errors.email}
+                      label={<Text tkey="contact-us" tid="your-email" />}
+                      color="secondary"
+                      fullWidth
+                    />
+                  </Grid>
 
-              <Grid container item xs={12} md={6}>
-                <FormControl size="medium" fullWidth>
-                  <InputLabel color="secondary" htmlFor="country-label">
-                    <Text tkey="contact-us" tid="your-country" />
-                  </InputLabel>
-                  <Select
-                    native
-                    id="country"
-                    name="country"
-                    color="secondary"
-                    inputProps={{
-                      name: "budget",
-                      id: "country-label"
-                    }}
+                  <Grid container item sm={12} lg={6}>
+                    <TextField
+                      id="phone"
+                      name="phone"
+                      value={values.phone}
+                      touched={touched.phone}
+                      onChange={handleChange}
+                      error={errors.phone}
+                      label={<Text tkey="contact-us" tid="your-phone" />}
+                      color="secondary"
+                      multiline
+                      fullWidth    
+                    />
+                  </Grid>
+
+                  <Grid container item sm={12} lg={6}>
+                    <FormControl size="medium" fullWidth>
+                      <TextField
+                        select
+                        id="country"
+                        name="country"
+                        value={values.country}
+                        touched={touched.country}
+                        error={errors.country}
+                        label={<Text tkey="contact-us" tid="your-country" />}
+                        onChange={handleChange}
+                        color="secondary"
+                      >
+                        {countryOptions.map((country) => (
+                          <MenuItem key={country.value} value={country.value}>
+                            {country.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid container item sm={12} lg={6}>
+                    <TextField
+                      id="city"
+                      name="city"
+                      value={values.city}
+                      touched={touched.city}
+                      onChange={handleChange}
+                      error={errors.city}
+                      label={<Text tkey="contact-us" tid="your-city" />}
+                      color="secondary"
+                      multiline
+                      fullWidth    
+                    />
+                  </Grid>
+
+                  <Grid container item sm={12} lg={6} >
+                    <FormControl size="medium" fullWidth >
+                      <TextField
+                        select
+                        id="budget"
+                        name="budget"
+                        value={values.budget}
+                        touched={touched.budget}
+                        error={errors.budget}
+                        label={<Text tkey="contact-us" tid="your-budget" />}
+                        onChange={handleChange}
+                        color="secondary"
+                      >
+                        {budgetOptions.map((budget) => (
+                          <MenuItem key={budget.value} value={budget.value}>
+                            {budget.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </FormControl>
+                  </Grid>
+                  
+                  <Grid container item sm={12} >
+                    <FormControl size="medium" fullWidth >
+                      <TextField
+                        select
+                        id="interesting"
+                        name="interesting"
+                        value={values.interesting}
+                        touched={touched.interesting}
+                        error={errors.interesting}
+                        label={<LabelBudget />}
+                        onChange={handleChange}
+                        color="secondary"
+                      >
+                        {interestingOptions.map((interesting) => (
+                          <MenuItem key={interesting.value} value={interesting.value}>
+                            {interesting.label}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </FormControl>
+                  </Grid>
+
+                  <Grid container item sm={12}>
+                    <TextField
+                      id="message"
+                      name="message"
+                      value={values.message}
+                      touched={touched.message}
+                      error={errors.message}
+                      onChange={handleChange}
+                      label={<Text tkey="contact-us" tid="your-messages" />}
+                      color="secondary"
+                      multiline
+                      fullWidth  
+                    />
+                  </Grid>
+
+                  <Button 
+                    type='submit' 
+                    disabled={isSubmitting}
                   >
-                    <option aria-label="None" value="" />
-                    <option value="Canada">Canada</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="United States">United States</option>
-                  </Select>
-                </FormControl>
-              </Grid>
+                    <Text tkey="contact-us" tid="send" />
+                  </Button>
 
-              <Grid container item xs={12} md={6}>
-                <TextField
-                  id="city"
-                  name="city"
-                  label={<Text tkey="contact-us" tid="your-city" />}
-                  color="secondary"
-                  multiline
-                  fullWidth    
-                />
-              </Grid>
-
-              <Grid container item xs={12} md={6} >
-                <FormControl size="medium" fullWidth >
-                  <InputLabel color="secondary" htmlFor="budget-label">
-                    <Text tkey="contact-us" tid="your-budget" />
-                  </InputLabel>
-                  <Select
-                    native
-                    id="budget"
-                    name="budget"
-                    color="secondary"
-                    inputProps={{
-                      name: "budget",
-                      id: "budget-label"
-                    }}
-                  >
-                    <option aria-label="None" value="" />
-                    <option value="$2.000 - $5.000">$2.000 - $5.000</option>
-                    <option value="$5.000 - $10.000">$5.000 - $10.000</option>
-                    <option value="$10.000 - $50.000">$10.000 - $50.000</option>
-                    <option value="$50.000 - $100.000">$50.000 - $100.000</option>
-                    <option value="$100.000 + ">$100.000 + </option>           
-                  </Select>
-                </FormControl>
-              </Grid>
-
-              <Grid container item xs={12} >
-                <FormControl size="medium" fullWidth >
-                  <InputLabel color="secondary" htmlFor="interesting-label">
-                    <Text tkey="contact-us" tid="your-interesting" />
-                  </InputLabel>
-                  <Select
-                    native
-                    id="budget"
-                    name="budget"
-                    color="secondary"
-                    inputProps={{
-                      name: "interesting",
-                      id: "interesting-label"
-                    }}
-                  >
-                    <option aria-label="None" value="" />
-                    <option value="personal">Personal</option>
-                    <option value="Business">Business / Empresarial</option>   
-                  </Select>
-                </FormControl>
-              </Grid>
-
-              <Grid container item xs={12}>
-                <TextField
-                  id="message"
-                  name="message"
-                  label={<Text tkey="contact-us" tid="your-messages" />}
-                  color="secondary"
-                  multiline
-                  fullWidth  
-                />
-              </Grid>
-            </Grid>
-
-            <>
-              {status === "SUCCESS" ? <p><Text tkey="contact-us" tid="thanks" /></p> : <Button><Text tkey="contact-us" tid="send" /></Button>}
-              {status === "ERROR" && <p><Text tkey="contact-us" tid="error" /></p>}
-            </>      
-          </Form>
+                  
+                </Grid>
+                {respondForm()}
+              </Form>
+            )}
+          </Formik>    
         </FormContent>
-        <ImageGrid item xs={12} md={6}>
+        <ImageGrid item sm={12} lg={6}>
           <ImageContactUs src={ContactUsImg} />
         </ImageGrid>
       </Gridheader>

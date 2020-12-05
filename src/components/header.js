@@ -10,7 +10,9 @@ import { Container } from "@material-ui/core";
 const ContainerHeader = styled(Container)`
   margin: 160px 0;
   padding: 0 !important;
-
+  @media (max-width: 768px) {
+    margin: 100px 0;
+  } 
 `
 
 const Image = styled.img`

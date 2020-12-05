@@ -1,8 +1,15 @@
 import React, { useContext, useEffect } from 'react';
-import Select from '@material-ui/core/Select';
-
 import { languageOptions } from '../languages';
 import { LanguageContext } from '../containers/language';
+import { MenuItem, TextField } from '@material-ui/core';
+import EnICon from '../images/Languajes/en.svg'
+import EsICon from '../images/Languajes/es.svg'
+import styled from "styled-components"
+
+
+const ImageIcon = styled.img`
+  height: 20px;
+`
 
 export default function LanguageSelector() {
   const { userLanguage, userLanguageChange } = useContext(LanguageContext);
@@ -19,14 +26,18 @@ export default function LanguageSelector() {
   }, [userLanguageChange]);
 
   return (
-    <Select
-      native
+
+
+    <TextField
+      select
       onChange={handleLanguageChange}
       value={userLanguage}
     >
       {Object.entries(languageOptions).map(([id, languaje]) => (
-        <option key={id} value={id}>{languaje}</option>
+        <MenuItem key={id} value={languaje}>
+          <ImageIcon src={languaje === "en" ? EnICon : EsICon} />
+        </MenuItem>
       ))}
-    </Select>
+    </TextField>
   );
 };

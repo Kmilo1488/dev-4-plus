@@ -5,6 +5,6 @@ import es from './es.json';
 export const dictionaryList = { en, es };
 
 export const languageOptions = {
-  en: 'English',
-  es: 'Español'
+  en: 'en',
+  es: 'es'
 };
