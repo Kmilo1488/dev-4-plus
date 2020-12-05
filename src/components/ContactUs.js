@@ -182,7 +182,7 @@ const ContactUs = () => {
   const handleOnSubmit = (values, actions) => {
     axios({
       method: "POST",
-      url: "https://formspree.io/xaylevkr",
+      url: "https://formspree.io/f/mjvpenoe",
       data: values
     })
       .then(response => {
